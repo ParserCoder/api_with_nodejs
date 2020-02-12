@@ -1,6 +1,6 @@
 // todo router
 const Router = require("express").Router()
-const { todo, getTodos } = require("../controllers")
+const { todo, getTodos, deleteTodo, updateTodo } = require("../controllers")
 
 function adaptControllers(controller) {
   return (req, res) => {
@@ -22,5 +22,7 @@ function adaptControllers(controller) {
 
 Router.post("/", adaptControllers(todo))
 Router.get("/", adaptControllers(getTodos))
+Router.delete("/:id", adaptControllers(deleteTodo))
+Router.put("/:id", adaptControllers(updateTodo))
 
 module.exports = Router

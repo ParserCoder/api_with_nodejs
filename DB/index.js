@@ -10,6 +10,6 @@ mongoose
     console.error(err)
   })
 
-const { insert, update, deleteOne, findAll, findOne } = dbFactory()
+const { insert, updateOne, deleteOne, findAll, findOne } = dbFactory()
 
-module.exports = { insert, update, deleteOne, findAll, findOne }
+module.exports = { insert, updateOne, deleteOne, findAll, findOne }

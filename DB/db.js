@@ -6,12 +6,16 @@ module.exports = function databaseFactory() {
     return schema.find().exec()
   }
   function findOne(schema, id) {}
-  function update(schema, data, id) {}
-  function deleteOne(schema, id) {}
+  function updateOne(schema, data, id) {
+    return schema.findOneAndUpdate({ _id: id }, { $set: data }).exec()
+  }
+  function deleteOne(schema, id) {
+    return schema.findOneAndDelete({ _id: id }).exec()
+  }
 
   return {
     insert,
-    update,
+    updateOne,
     deleteOne,
     findAll,
     findOne
